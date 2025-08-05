@@ -191,11 +191,6 @@ router.post('/generate', async (req, res) => {
     }
 });
 
-/**
- * POST /api/v1/encode-curl
- * Body: { curl: "curl -X GET https://api.example.com/data" }
- * Returns: { base64: "Y3VybCAtWCBHRVQgaHR0cHM6Ly9hcGkuZXhhbXBsZS5jb20vZGF0YQ==" }
- */
 router.post('/curl/base64', express.text({ type: '*/*' }), (req, res) => {
     try {
         const curlRaw = req.body;
@@ -211,11 +206,6 @@ router.post('/curl/base64', express.text({ type: '*/*' }), (req, res) => {
     }
 });
 
-/**
- * POST /api/v1/encode-json
- * Body: { json: { anyValidJsonObject } }
- * Returns: { base64: "..." }
- */
 router.post('/json/base64', (req, res) => {
     try {
         const { json } = req.body;
